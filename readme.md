@@ -145,7 +145,25 @@ Eğitim işlemi **Google Colab** üzerinde **T4 GPU** ile yapılır.
 4. Eğitim çıktısı olarak **LoRA adapter** klasörü oluşur (`models/qwen2.5-lora-adapter/` gibi).
 
 ---
+#### 📌 Eğitim Özeti (Dataset: 1000 Q&A)
 
+Bu model, **1000 adet Soru-Cevap** kaydı ile (Alpaca JSON formatında: `data/atakan_qa.json`) fine-tune edilmiştir.
+
+**Eğitim Konfigürasyonu (Training_Colab.ipynb):**
+- **Base model:** `Qwen/Qwen2.5-3B-Instruct`
+- **Stage:** SFT
+- **Fine-tuning yöntemi:** LoRA / QLoRA
+- **LoRA target:** `all`
+- **LoRA rank (r):** `16`
+- **LoRA alpha:** `32`
+- **LoRA dropout:** `0.05`
+- **cutoff_len:** `1024`
+- **learning_rate:** `2e-4`
+- **num_train_epochs:** `3`
+- **max_samples:** `10000` *(üst sınır)*
+
+> Not: Eğitim verisi `dataset.csv` dosyasından üretilerek JSON’a dönüştürülmüştür ve dönüştürme sırasında toplam kayıt sayısı ekrana yazdırılır.
+--
 ### Adım 4: Test ve Arayüz (Gradio)
 
 Eğitim tamamlandığında, `Training_Colab.ipynb` içindeki Gradio hücresi çalıştırılarak chat arayüzü açılır.

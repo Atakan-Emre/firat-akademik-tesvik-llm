@@ -163,7 +163,7 @@ Bu model, **1000 adet Soru-Cevap** kaydı ile (Alpaca JSON formatında: `data/at
 - **max_samples:** `10000` *(üst sınır)*
 
 > Not: Eğitim verisi `dataset.csv` dosyasından üretilerek JSON’a dönüştürülmüştür ve dönüştürme sırasında toplam kayıt sayısı ekrana yazdırılır.
---
+---
 ### Adım 4: Test ve Arayüz (Gradio)
 
 Eğitim tamamlandığında, `Training_Colab.ipynb` içindeki Gradio hücresi çalıştırılarak chat arayüzü açılır.

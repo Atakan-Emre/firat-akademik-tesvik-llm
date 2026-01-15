@@ -174,7 +174,7 @@ Aşağıda örnek Gradio arayüz ekran görüntüsü yer almaktadır:
 
 **Örnek Soru:**
 
-> “Akademik teşvik başvurusu için son tarih nedir ve YÖKSİS çıktısı nereye teslim edilir?”
+> “Akademik teşvik başvurusu için son tarih nedir?”
 
 ---
 

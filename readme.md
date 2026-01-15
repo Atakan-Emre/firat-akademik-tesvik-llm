@@ -12,26 +12,27 @@ Aşağıdaki şema, verinin dokümandan modele nasıl dönüştüğünü özetle
 
 ```mermaid
 graph TD
-    subgraph "1. Veri Üretimi"
-        A[📂 Dokümanlar<br/>(PDF / Word)] -->|Yükleme| B[Google NotebookLM]
-        B -->|Prompting| C[📄 Ham Veri Seti<br/>(CSV Formatı)]
-    end
+  subgraph Uretim["1. Veri Uretimi"]
+    A["Dokumanlar (PDF / Word)"] -->|Yukleme| B["Google NotebookLM"]
+    B -->|Prompting| C["Ham Veri Seti (CSV)"]
+  end
 
-    subgraph "2. Ön İşleme"
-        C -->|Python Script| D[⚙️ Veri Temizliği & Dönüşüm]
-        D -->|Formatlama| E[📝 Eğitim Verisi<br/>(Alpaca JSON)]
-    end
+  subgraph OnIsleme["2. On Isleme"]
+    C -->|Python Script| D["Veri Temizligi ve Donusum"]
+    D -->|Formatlama| E["Egitim Verisi (Alpaca JSON)"]
+  end
 
-    subgraph "3. Model Eğitimi (Colab)"
-        E -->|Upload| F[Google Colab<br/>(T4 GPU)]
-        F -->|LlamaFactory| G[🧠 Qwen-2.5-3B<br/>(Base Model)]
-        G -->|QLoRA Fine-Tuning| H[💾 LoRA Adapter<br/>(Eğitilmiş Ağırlıklar)]
-    end
+  subgraph Egitim["3. Model Egitimi (Colab)"]
+    E -->|Upload| F["Google Colab (T4 GPU)"]
+    F -->|LlamaFactory| G["Qwen-2.5-3B (Base Model)"]
+    G -->|QLoRA Fine-Tuning| H["LoRA Adapter (Egitilmis Agirliklar)"]
+  end
 
-    subgraph "4. Kullanım"
-        H -->|Merge/Load| I[💬 Gradio Arayüzü]
-        I -->|Soru-Cevap| J((Son Kullanıcı))
-    end
+  subgraph Kullanim["4. Kullanim"]
+    H -->|Merge/Load| I["Gradio Arayuzu"]
+    I -->|Soru-Cevap| J(("Son Kullanici"))
+  end
+
 ```
 
 ---

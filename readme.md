@@ -42,24 +42,21 @@ graph TD
 ```text
 firat-akademik-tesvik-llm/
 │
-├── README.md                     # Proje dokümantasyonu (Bu dosya)
+├── README.md                     # Proje dokümantasyonu
 │
-├── docs/                         # Kaynak Dokümanlar (NotebookLM'e yüklenenler)
+├── docs/                         # Kaynak Dokümanlar 
 │   ├── Akademik_Tesvik_Yonetmeligi_Basvuru_Rehberi.docx
 │   ├── Akademik_Tesvik_Odenegi_Yonetmeligi.pdf
 │   └── Akademik_Tesvik_Takvimi_2026.pdf
 │
 ├── data/                         # Veri Setleri
-│   ├── raw_dataset.csv           # NotebookLM'den alınan ham CSV
+│   ├── dataset.csv           # NotebookLM'den alınan ham CSV
 │   ├── dataset_info.json         # LlamaFactory veri konfigürasyonu
 │   └── atakan_qa.json            # Eğitime hazır Alpaca JSON formatı
 │
-├── notebooks/                    # Kodlar / Notebooklar
-│   ├── 01_csv_to_json.py         # CSV -> JSON dönüştürücü script
-│   └── Training_Colab.ipynb      # Google Colab Eğitim Notebook'u
-│
-└── models/                       # Eğitim çıktıları (Opsiyonel / Drive bağlantılı)
-    └── qwen2.5-lora-adapter/     # Oluşan LoRA dosyaları
+└── notebooks/                    # Kodlar / Notebooklar
+    └── Training_Colab.ipynb      # Google Colab Eğitim Notebook'u
+ 
 ```
 
 ---
@@ -95,7 +92,7 @@ Aşağıdaki dokümanlardan SADECE içerikte açıkça geçen bilgilere dayanara
 KOLONLAR: "id";"question";"answer";"source_doc";"source_loc";"tags";"difficulty"
 
 KURALLAR:
-1) 200 adet kayıt üret.
+1) 1000 adet kayıt üret.
 2) question: 8–25 kelime.
 3) answer: 40–140 kelime; kısa, net.
 4) source_doc: [Başvuru Rehberi] | [Yönetmelik] | [Takvim].
@@ -153,11 +150,16 @@ Eğitim işlemi **Google Colab** üzerinde **T4 GPU** ile yapılır.
 
 Eğitim tamamlandığında, `Training_Colab.ipynb` içindeki Gradio hücresi çalıştırılarak chat arayüzü açılır.
 
+Aşağıda örnek Gradio arayüz ekran görüntüsü yer almaktadır:
+
+![Gradio Arayüzü](./test.jpg)
+
 **Örnek Soru:**
 
 > “Akademik teşvik başvurusu için son tarih nedir ve YÖKSİS çıktısı nereye teslim edilir?”
 
 ---
+
 
 ## 🛠 Kullanılan Teknolojiler
 
@@ -176,6 +178,42 @@ Eğitim tamamlandığında, `Training_Colab.ipynb` içindeki Gradio hücresi ça
 2. **Colab Limitleri:** Ücretsiz Colab GPU süreleri sınırlı olabilir; checkpoint/çıktıları Drive’a almak mantıklı.
 3. **Resmi Kaynak:** Modelin cevabı yardımcıdır; nihai referans ilgili yönetmelik ve resmi duyurulardır.
 
+## 🤝 Katkıda Bulunma 
+
+Katkılar memnuniyetle karşılanır.
+
+1. Bu repoyu **fork**'layın.
+2. Yeni bir branch oluşturun: `feature/xxx`
+3. Değişiklikleri commit edin.
+4. Pull Request (PR) açın.
+
+PR açarken mümkünse şunları ekleyin:
+- Ne değişti? (kısa özet)
+- Neden değişti? (gerekçe)
+- Test / doğrulama adımları
+
 ---
 
-**Geliştirici:** Atakan Emre
+## 🧾 Lisans 
+
+Bu proje **MIT License** ile lisanslanmıştır.
+
+- Lisans metni için: `LICENSE` dosyasına bakın.
+- Kısaca: MIT lisansı, projeyi kullanmanıza, değiştirmenize ve dağıtmanıza izin verir; telif hakkı ve lisans bildiriminin korunmasını şart koşar.
+
+> Licensed under the MIT License. See `LICENSE` for details.
+
+---
+
+## 📌 Alıntılama 
+
+Bu projeyi akademik veya rapor amaçlı kullanırsanız aşağıdaki gibi atıf verebilirsiniz:
+
+```bibtex
+@software{firat_akademik_tesvik_llm,
+  author  = {Şahin Atakan Emre},
+  title   = {Firat Universitesi Akademik Tesvik Asistani (LLM Fine-Tuning)},
+  year    = {2026},
+  url     = {https://github.com/Atakan-Emre/firat-akademik-tesvik-llm}
+}
+
